@@ -14,6 +14,11 @@ hook_schema = {
     }
 }
 
+@app.route("/")
+def health_check():
+    """Provide target group health checking"""
+    return "OK", 200
+
 @app.route("/api-gateway-hook", methods=['POST'])
 def grab_hook():
     """Create a method we can use for testing that contains a defined schema and pass it through an API gateway,
